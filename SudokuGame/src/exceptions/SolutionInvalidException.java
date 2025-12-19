@@ -4,7 +4,7 @@ package exceptions;
 
 
 
-class SolutionInvalidException extends Exception {
+public class SolutionInvalidException extends Exception {
     public SolutionInvalidException(String message) {
         super(message);
     }
