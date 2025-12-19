@@ -4,6 +4,7 @@ package interfaces;
 import java.io.IOException;
 import model.Catalog;
 import model.Game;
+import exceptions.*;
 
 public interface Viewable {
     
