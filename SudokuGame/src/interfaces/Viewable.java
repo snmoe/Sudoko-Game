@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+
 package interfaces;
 
-/**
- *
- * @author moesn
- */
-public interface Viewable {
+import java.io.IOException;
+import model.Catalog;
+import model.Game;
 
+public interface Viewable {
+    
+  Catalog getCatalog();
+  Game getGame(DifficultyEnum level) throws NotFoundException;
+  void driveGames(Game sourceGame) throws SolutionInvalidException;
+  String verifyGame(Game game);
+  int[] solveGame(Game game) throws InvalidGame;
+  void logUserAction(String userAction) throws IOException;
 }

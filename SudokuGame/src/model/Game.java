@@ -1,28 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
 import java.util.Arrays;
 
-public class SudokuBoard implements Cloneable {
+public class Game implements Cloneable {
 
     private int[][] board;
 
-    public SudokuBoard(int[][] grid) {
-        this.board = new int[9][9];
-        for (int i = 0; i < 9; i++) {
-            System.arraycopy(grid[i], 0, this.board[i], 0, 9);
-        }
+    public Game(int[][] grid) {
+        this.board = board;
     }
 
-    public SudokuBoard clone() {
+    public Game clone() {
         int[][] newGrid = new int[9][9];
         for (int i = 0; i < 9; i++) {
             System.arraycopy(this.board[i], 0, newGrid[i], 0, 9);
         }
-        return new SudokuBoard(newGrid);
+        return new Game(newGrid);
     }
 
     public void setCell(int row, int col, int value) {

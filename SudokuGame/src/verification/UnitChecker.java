@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package verification;
 
+import verification.FailedVerificationResult;
 import java.util.ArrayList;
 import java.util.HashMap;
+import model.Game;
 
 public class UnitChecker { //units are either the rows, columns or boxes
 
-    public static ArrayList<FailedVerificationResult> checkRow(int row, SudokuBoard board) {
+    public static ArrayList<FailedVerificationResult> checkRow(int row, Game board) {
         ArrayList<FailedVerificationResult> results = new ArrayList<>();
         int[] rowData = board.getRow(row);
 
@@ -46,7 +48,7 @@ public class UnitChecker { //units are either the rows, columns or boxes
         return results;
     }
 
-    public static ArrayList<FailedVerificationResult> checkColumn(int col, SudokuBoard board) {
+    public static ArrayList<FailedVerificationResult> checkColumn(int col, Game board) {
         ArrayList<FailedVerificationResult> results = new ArrayList<>();
         int[] colData = board.getColumn(col);
 
@@ -76,7 +78,7 @@ public class UnitChecker { //units are either the rows, columns or boxes
         return results;
     }
 
-    public static ArrayList<FailedVerificationResult> checkBox(int boxIndex, SudokuBoard board) {
+    public static ArrayList<FailedVerificationResult> checkBox(int boxIndex, Game board) {
         ArrayList<FailedVerificationResult> results = new ArrayList<>();
         int[] boxData = board.getSubgrid(boxIndex);
 

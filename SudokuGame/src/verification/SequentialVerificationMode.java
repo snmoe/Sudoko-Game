@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package verification;
 
+import verification.FailedVerificationResult;
 import java.util.ArrayList;
+import model.Game;
 
 public class SequentialVerificationMode {
 
-    public ArrayList<FailedVerificationResult> verify(SudokuBoard board) {
+    public ArrayList<FailedVerificationResult> verify(Game board) {
 
         ArrayList<FailedVerificationResult> allFailures = new ArrayList<>();
 
