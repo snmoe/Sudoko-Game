@@ -8,6 +8,8 @@ package exceptions;
  *
  * @author amr
  */
-public class ex {
-    
+class InvalidGame extends Exception {
+    public InvalidGame(String message) {
+        super(message);
+    }
 }
