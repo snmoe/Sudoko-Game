@@ -6,7 +6,7 @@ package exceptions;
 
 
 
-class InvalidSolutionException extends Exception {
+ public class InvalidSolutionException extends Exception {
     public InvalidSolutionException(String message) {
         super(message);
     }
