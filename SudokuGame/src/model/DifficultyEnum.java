@@ -8,7 +8,7 @@ package model;
  *
  * @author moesn
  */
-public enum DifficulityEnum {
+public enum DifficultyEnum {
     EASY,
     MEDIUM,
     HARD
