@@ -1,5 +1,6 @@
 
 package interfaces;
+import exceptions.*;
 
 public interface Controllable {
   boolean[] getCatalog();
