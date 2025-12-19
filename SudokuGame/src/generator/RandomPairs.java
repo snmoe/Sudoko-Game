@@ -1,3 +1,5 @@
+package generator;
+
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,10 +18,6 @@ public class RandomPairs {
         this.random = new Random(System.currentTimeMillis());
     }
 
-    /**
-     * Generate n distinct random pairs (x, y) where 0 <= x <= 8 and 0 <= y <=
-     * 8.
-     */
     public List<int[]> generateDistinctPairs(int n) {
         if (n < 0 || n > MAX_UNIQUE_PAIRS) {
             throw new IllegalArgumentException(

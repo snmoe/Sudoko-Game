@@ -1,6 +1,7 @@
 
 package interfaces;
 import exceptions.*;
+import java.io.IOException;
 
 public interface Controllable {
   boolean[] getCatalog();
