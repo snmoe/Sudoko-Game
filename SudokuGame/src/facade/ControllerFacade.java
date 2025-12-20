@@ -3,7 +3,7 @@ package facade;
 import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;
-import facade.Viewable;
+import interfaces.Viewable;
 import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;

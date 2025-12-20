@@ -1,5 +1,5 @@
 
-package facade;
+package controllers;
 
 public class GenerateController {
     

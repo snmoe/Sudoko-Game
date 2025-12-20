@@ -1,5 +1,5 @@
 
-package interfaces;
+package view;
 import exceptions.*;
 import java.io.IOException;
 

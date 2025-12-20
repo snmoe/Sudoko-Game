@@ -1,5 +1,5 @@
 
-package facade;
+package interfaces;
 
 import java.io.IOException;
 import model.Catalog;
