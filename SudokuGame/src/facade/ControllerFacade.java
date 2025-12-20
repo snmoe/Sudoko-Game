@@ -3,13 +3,23 @@ package facade;
 import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;
+import generator.RandomPairs;
 import interfaces.Viewable;
 import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;
 import model.Game;
+import verification.SequentialVerificationMode;
 
-public class ControllerFacade implements Viewable{
+public class ControllerFacade implements Viewable {
+
+    private final SequentialVerificationMode verifier;
+    private final RandomPairs randomPairs;
+
+    public ControllerFacade() {
+        this.verifier = new SequentialVerificationMode();
+        this.randomPairs = new RandomPairs();
+    }
 
     @Override
     public Catalog getCatalog() {
@@ -40,5 +50,5 @@ public class ControllerFacade implements Viewable{
     public void logUserAction(String userAction) throws IOException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
