@@ -16,7 +16,7 @@ public class GameValidator {
                 }
             }
         }
-        SequentialVerificationMode verifier = new SequentialVerificationMode();
+        DuplicationVerificationMode verifier = new DuplicationVerificationMode();
         ArrayList<FailedVerificationResult> failures = verifier.verify(game);
         if(!failures.isEmpty()){
             return VerificationEnum.INVALID;

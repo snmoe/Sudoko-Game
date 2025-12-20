@@ -8,7 +8,7 @@ import java.util.List;
 import model.DifficultyEnum;
 import model.Game;
 import verification.FailedVerificationResult;
-import verification.SequentialVerificationMode;
+import verification.DuplicationVerificationMode;
 import verification.VerificationEnum;
 import verification.GameValidator;
 
@@ -27,9 +27,7 @@ public class GameDriver {
         }
 
         generateAndSaveLevel(sourceSolution, DifficultyEnum.HARD, 25);
-
         generateAndSaveLevel(sourceSolution, DifficultyEnum.MEDIUM, 20);
-
         generateAndSaveLevel(sourceSolution, DifficultyEnum.EASY, 10);
     }
 
