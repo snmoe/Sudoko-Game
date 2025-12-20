@@ -4,7 +4,7 @@
  */
 package verification;
 
-import verification.FailedVerificationResult;
+
 import java.util.ArrayList;
 import model.Game;
 

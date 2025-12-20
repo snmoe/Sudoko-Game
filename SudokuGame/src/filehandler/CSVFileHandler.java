@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVFileHandler { // singleton design pattern
+public class CSVFileHandler { 
     
     public static int[][] CSVReader(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));

@@ -30,6 +30,4 @@ public class PermutationIterator {
         
         hasMore = false;
     }
-    
-    
 }
