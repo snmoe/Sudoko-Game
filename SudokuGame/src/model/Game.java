@@ -8,7 +8,7 @@ public class Game implements Cloneable {
     private int[][] board;
 
     public Game(int[][] grid) {
-        this.board = board;
+        this.board = grid;
     }
 
     public Game clone() {
