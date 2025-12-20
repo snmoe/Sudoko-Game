@@ -28,7 +28,6 @@ public class RandomPairs {
         while (result.size() < n) {
             int x = random.nextInt(MAX_COORD + 1); // 0..8
             int y = random.nextInt(MAX_COORD + 1); // 0..8
-            // Encode pair (x, y) as a single int to track uniqueness
             int key = x * (MAX_COORD + 1) + y;
             if (used.add(key)) {
                 result.add(new int[]{x, y});
