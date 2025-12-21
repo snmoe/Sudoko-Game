@@ -8,14 +8,11 @@ import model.Game;
 public class GameValidator {
     public static VerificationEnum validate(Game game){
         
-         int[][] grid = game.getGrid();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (grid[i][j] == 0) {
-                    return VerificationEnum.INCOMPLETE;
-                }
-            }
+        int[][] grid = game.getGrid();
+        if(!game.isFull()){
+            return VerificationEnum.INCOMPLETE;
         }
+        
         DuplicationVerificationMode verifier = new DuplicationVerificationMode();
         ArrayList<FailedVerificationResult> failures = verifier.verify(game);
         
