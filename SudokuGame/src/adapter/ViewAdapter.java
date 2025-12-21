@@ -56,8 +56,13 @@ public class ViewAdapter implements Controllable {
     }
 
     @Override
-    public int[][] solveGame(int[][] game) throws InvalidGame {
-       
+   public int[][] solveGame(int[][] game) throws InvalidGame {
+        int[] cellssolver = controller.solveGame(new Game(game));
+        for (int i = 0; i < 5; i++) {
+            game[cellssolver[i] / 100][(cellssolver[i] / 10) % 10] = cellssolver[i] % 10;
+
+        }
+        return game;
     }
 
     @Override
