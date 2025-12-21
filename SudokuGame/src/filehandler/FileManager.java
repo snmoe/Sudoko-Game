@@ -110,8 +110,14 @@ public class FileManager {
             File dir = new File(basePath + "/" + folder);
             if (!dir.exists()) {
                 dir.mkdirs();
-            }
+             }
         }
+    }
+    
+    
+    public static Game loadGameFromPath(String path) throws IOException {
+        int[][] board = CSVFileHandler.CSVReader(path);
+        return new Game(board);
     }
 
 }
