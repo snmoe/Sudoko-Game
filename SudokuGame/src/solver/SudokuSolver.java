@@ -14,22 +14,18 @@ public class SudokuSolver {
 
  
     public int[][] solve(Game game) throws InvalidGame {
-        // 1. Find the 5 empty cells
         int[][] emptyPositions = findEmptyCells(game);
 
         if (emptyPositions.length != 5) {
             throw new InvalidGame("Solver requires exactly 5 empty cells, found: " + emptyPositions.length);
         }
 
-        // 2. Try all permutations
         PermutationIterator iter = new PermutationIterator();
 
         while (iter.hasNext()) {
             int[] values = iter.next();
 
-            // 3. Verify with Flyweight
             if (verifier.isValidWith(game, emptyPositions, values)) {
-                // Found a solution!
                 return formatSolution(emptyPositions, values);
             }
         }
@@ -57,9 +53,7 @@ public class SudokuSolver {
         return result;
     }
 
-    /**
-     * Format solution as [[row, col, value], [row, col, value], ...]
-     */
+ 
     private int[][] formatSolution(int[][] emptyPositions, int[] values) {
         int[][] solution = new int[5][3];
         for (int i = 0; i < 5; i++) {
