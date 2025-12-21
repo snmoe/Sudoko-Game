@@ -70,7 +70,12 @@ public class FileManager {
     }
 
     public static void deleteGame(DifficultyEnum level, String filename) {
-
+     String folderPath = basePath + "/" + level.name().toLowerCase();
+    File gameFile = new File(folderPath + "/" + filename);
+    if (gameFile.exists()) {
+        gameFile.delete();
+    }
+        
     }
 
     public static void saveCurrentGame(Game game) throws IOException {

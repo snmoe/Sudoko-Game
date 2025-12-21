@@ -97,5 +97,9 @@ public class ControllerFacade implements Viewable {
 
         return verifyController.getInvalidAbsolutePositions(game);
     }
+    
+    public void updateCurrentGame(Game game) throws IOException{
+        FileManager.saveCurrentGame(game);
+    }
 
 }

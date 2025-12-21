@@ -4,6 +4,7 @@ import java.io.IOException;
 import model.Catalog;
 import model.Game;
 import exceptions.*;
+import java.util.List;
 import model.DifficultyEnum;
 
 public interface Viewable {
@@ -23,4 +24,6 @@ public interface Viewable {
     void driveGamesFromPath(String path) throws SolutionInvalidException;
 
     List<int[]> getInvalidPositions(Game game);
+    
+    void updateCurrentGame(Game game) throws IOException;
 }

@@ -54,7 +54,8 @@ public class ViewAdapter implements Controllable {
 
         Game game = new Game(grid);
         boolean[][] invalid = new boolean[9][9];
-        for (int[] pos : controller.getInvalidPositions(game)) {
+        
+        for(int[] pos : controller.getInvalidPositions(game)) {
             invalid[pos[0]][pos[1]] = true;
         }
         return invalid;
@@ -75,5 +76,10 @@ public class ViewAdapter implements Controllable {
     public void logUserAction(UserAction userAction) throws IOException {
         controller.logUserAction(userAction.toString());
     }
-
+    
+    public void updateCurrentGame(int[][] game) throws IOException{
+        Game g = new Game(game);
+        controller.updateCurrentGame(g);
+        
+    } 
 }

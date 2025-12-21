@@ -13,7 +13,7 @@ public class FlyweightVerifier {
 
     public boolean isValidWith(Game game, int[][] positions, int[] values) {
 
-        // Apply values (extrinsic state)
+       
         for (int i = 0; i < positions.length; i++) {
             int row = positions[i][0];
             int col = positions[i][1];
@@ -22,7 +22,7 @@ public class FlyweightVerifier {
 
         boolean valid = verifier.verify(game).isEmpty();
 
-        // Roll back
+       
         for (int i = 0; i < positions.length; i++) {
             int row = positions[i][0];
             int col = positions[i][1];
