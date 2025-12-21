@@ -50,14 +50,19 @@ public class ViewAdapter implements Controllable {
     }
 
     @Override
-    public boolean[][] verifyGame(int[][] game) {
-        
-        
+    public boolean[][] verifyGame(int[][] grid) {
+
+        Game game = new Game(grid);
+        boolean[][] invalid = new boolean[9][9];
+        for (int[] pos : controller.getInvalidPositions(game)) {
+            invalid[pos[0]][pos[1]] = true;
+        }
+        return invalid;
     }
 
     @Override
     public int[][] solveGame(int[][] game) throws InvalidGame {
-       
+
     }
 
     @Override

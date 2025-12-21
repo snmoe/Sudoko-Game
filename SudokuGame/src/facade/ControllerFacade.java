@@ -12,6 +12,7 @@ import generator.RandomPairs;
 import adapter.Viewable;
 import java.awt.Desktop.Action;
 import java.io.IOException;
+import java.util.List;
 import model.Catalog;
 import model.DifficultyEnum;
 import model.Game;
@@ -38,13 +39,13 @@ public class ControllerFacade implements Viewable {
         } catch (Exception e) {
             hasCurrent = false;
         }
-        
+
         Catalog.setCurrent(hasCurrent);
 
         boolean allExist = FileManager.hasGameOfLevel(DifficultyEnum.EASY)
                 && FileManager.hasGameOfLevel(DifficultyEnum.MEDIUM)
                 && FileManager.hasGameOfLevel(DifficultyEnum.HARD);
-        
+
         Catalog.setAllModesExist(allExist);
 
         return new Catalog();
@@ -82,15 +83,19 @@ public class ControllerFacade implements Viewable {
     public void logUserAction(String userAction) throws IOException {
         ActionLogger.logAction(userAction);
     }
-    
-    
-     public void driveGamesFromPath(String sourcePath) throws SolutionInvalidException {
+
+    public void driveGamesFromPath(String sourcePath) throws SolutionInvalidException {
         try {
             Game sourceGame = FileManager.loadGameFromPath(sourcePath);
             driveGames(sourceGame);
         } catch (Exception e) {
             throw new SolutionInvalidException(e.getMessage());
         }
+    }
+
+    public List<int[]> getInvalidPositions(Game game) {
+
+        return verifyController.getInvalidAbsolutePositions(game);
     }
 
 }
