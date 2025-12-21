@@ -2,23 +2,23 @@ package model;
 
 public class Catalog {
 
-    private boolean current;
-    private boolean allModesExist;
+    private static boolean current;
+    private static boolean allModesExist;
 
-    public boolean isCurrent() {
+    public static boolean isCurrent() {
         return current;
     }
 
-    public void setCurrent(boolean current) {
-        this.current = current;
+    public static void setCurrent(boolean curr) {
+        current = curr;
     }
 
-    public boolean isAllModesExist() {
+    public static boolean isAllModesExist() {
         return allModesExist;
     }
 
-    public void setAllModesExist(boolean allModesExist) {
-        this.allModesExist = allModesExist;
+    public static void setAllModesExist(boolean Exist) {
+        allModesExist = Exist;
     }
     
     

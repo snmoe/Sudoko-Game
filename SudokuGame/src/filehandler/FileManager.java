@@ -44,7 +44,7 @@ public class FileManager {
                 }
             }
         }
-
+ 
         if (csvFiles.isEmpty()) {
             throw new NotFoundException("No games found for difficulty: " + diff);
         }
