@@ -3,12 +3,9 @@ package generator;
 import exceptions.InvalidGame;
 import filehandler.FileManager;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import model.DifficultyEnum;
 import model.Game;
-import verification.FailedVerificationResult;
-import verification.DuplicationVerificationMode;
 import verification.VerificationEnum;
 import verification.GameValidator;
 
