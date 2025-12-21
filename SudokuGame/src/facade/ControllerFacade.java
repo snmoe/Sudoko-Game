@@ -13,12 +13,10 @@ import verification.DuplicationVerificationMode;
 
 public class ControllerFacade implements Viewable {
 
-    private final DuplicationVerificationMode verifier;
-    private final RandomPairs randomPairs;
+    private GenerateController generateController;
 
     public ControllerFacade() {
-        this.verifier = new DuplicationVerificationMode();
-        this.randomPairs = new RandomPairs();
+
     }
 
     @Override
