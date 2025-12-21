@@ -76,4 +76,10 @@ public class ViewAdapter implements Controllable {
         controller.logUserAction(userAction.toString());
     }
 
+    public int[][] getCurrentGame() throws NotFoundException {
+
+        Game game = controller.getCurrentGame();
+        return game.getGrid();
+    }
+
 }

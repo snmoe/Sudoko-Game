@@ -98,4 +98,14 @@ public class ControllerFacade implements Viewable {
         return verifyController.getInvalidAbsolutePositions(game);
     }
 
+    public Game getCurrentGame() throws NotFoundException {
+        try {
+            return FileManager.loadCurrentGame();
+        } catch (NotFoundException ex) {
+            throw ex;
+        } catch (IOException ex) {
+            throw new RuntimeException("Error reading current game file: " + ex.getMessage());
+        }
+    }
+
 }

@@ -18,70 +18,77 @@ import javax.swing.UIManager;
  */
 public class Game extends javax.swing.JFrame {
 
-
-private void restrictToSingleDigit(javax.swing.JTextField field) {
-    ((javax.swing.text.AbstractDocument) field.getDocument()).setDocumentFilter(new javax.swing.text.DocumentFilter() {
-        @Override
-        public void replace(FilterBypass fb, int offset, int length, String text, javax.swing.text.AttributeSet attrs) throws javax.swing.text.BadLocationException {
-            String newText = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
-            if (text.isEmpty() || (newText.length() == 1 && text.matches("[1-9]"))) {
-                super.replace(fb, offset, length, text, attrs);
-            }
-        }
-    });
-}
-
-private void addValidationListener(javax.swing.JTextField field, javax.swing.JTextField[] allFields) {
-    field.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-        @Override
-        public void insertUpdate(javax.swing.event.DocumentEvent e) { checkCells(); }
-        @Override
-        public void removeUpdate(javax.swing.event.DocumentEvent e) { checkCells(); }
-        @Override
-        public void changedUpdate(javax.swing.event.DocumentEvent e) { checkCells(); }
-
-        private void checkCells() {
-            int emptyCount = 0;
-            for (javax.swing.JTextField f : allFields) {
-                if (f.getText().trim().isEmpty()) {
-                    emptyCount++;
+    private void restrictToSingleDigit(javax.swing.JTextField field) {
+        ((javax.swing.text.AbstractDocument) field.getDocument()).setDocumentFilter(new javax.swing.text.DocumentFilter() {
+            @Override
+            public void replace(FilterBypass fb, int offset, int length, String text, javax.swing.text.AttributeSet attrs) throws javax.swing.text.BadLocationException {
+                String newText = fb.getDocument().getText(0, fb.getDocument().getLength()) + text;
+                if (text.isEmpty() || (newText.length() == 1 && text.matches("[1-9]"))) {
+                    super.replace(fb, offset, length, text, attrs);
                 }
             }
-            // Enable button ONLY if exactly 5 cells are empty
-            Solve.setEnabled(emptyCount == 5);
-        }
-    });
-}
-    
+        });
+    }
+
+    private void addValidationListener(javax.swing.JTextField field, javax.swing.JTextField[] allFields) {
+        field.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                checkCells();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                checkCells();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                checkCells();
+            }
+
+            private void checkCells() {
+                int emptyCount = 0;
+                for (javax.swing.JTextField f : allFields) {
+                    if (f.getText().trim().isEmpty()) {
+                        emptyCount++;
+                    }
+                }
+                // Enable button ONLY if exactly 5 cells are empty
+                Solve.setEnabled(emptyCount == 5);
+            }
+        });
+    }
+
     public Game() {
         initComponents();
         Solve.setEnabled(false);
         setLocationRelativeTo(null);
         setTitle("Game");
         javax.swing.JTextField[] allFields = {
-        jTextField1, jTextField2, jTextField3, jTextField4, jTextField5,
-        jTextField6,jTextField7,jTextField8,jTextField9,jTextField10,jTextField11
-        ,jTextField12,jTextField13,jTextField14,jTextField15,jTextField16,
-        jTextField17,jTextField18,jTextField19,jTextField20,jTextField21,
-        jTextField22,jTextField23,jTextField24,jTextField25,jTextField26,
-        jTextField27,jTextField28,jTextField29,jTextField30,jTextField31,
-        jTextField31,jTextField32,jTextField33,jTextField34,jTextField35,jTextField36,
-        jTextField37,jTextField38,jTextField39,jTextField40,jTextField41,jTextField42,
-        jTextField43,jTextField44,jTextField45,jTextField46,jTextField47,jTextField48,
-        jTextField49,jTextField50,jTextField51,jTextField52,jTextField53,jTextField54,
-        jTextField55,jTextField56,jTextField57,jTextField58,jTextField59,jTextField60,
-        jTextField61,jTextField62,jTextField63,jTextField64,jTextField65,jTextField66,
-        jTextField67,jTextField68,jTextField69,jTextField70,jTextField71,jTextField72,
-        jTextField73,jTextField74,jTextField75,jTextField76,jTextField77,jTextField78,
-        jTextField79,jTextField80,jTextField81
-    };
+            jTextField1, jTextField2, jTextField3, jTextField4, jTextField5,
+            jTextField6, jTextField7, jTextField8, jTextField9, jTextField10, jTextField11,
+             jTextField12, jTextField13, jTextField14, jTextField15, jTextField16,
+            jTextField17, jTextField18, jTextField19, jTextField20, jTextField21,
+            jTextField22, jTextField23, jTextField24, jTextField25, jTextField26,
+            jTextField27, jTextField28, jTextField29, jTextField30, jTextField31,
+            jTextField31, jTextField32, jTextField33, jTextField34, jTextField35, jTextField36,
+            jTextField37, jTextField38, jTextField39, jTextField40, jTextField41, jTextField42,
+            jTextField43, jTextField44, jTextField45, jTextField46, jTextField47, jTextField48,
+            jTextField49, jTextField50, jTextField51, jTextField52, jTextField53, jTextField54,
+            jTextField55, jTextField56, jTextField57, jTextField58, jTextField59, jTextField60,
+            jTextField61, jTextField62, jTextField63, jTextField64, jTextField65, jTextField66,
+            jTextField67, jTextField68, jTextField69, jTextField70, jTextField71, jTextField72,
+            jTextField73, jTextField74, jTextField75, jTextField76, jTextField77, jTextField78,
+            jTextField79, jTextField80, jTextField81
+        };
 
-    for (javax.swing.JTextField field : allFields) {
-        restrictToSingleDigit(field);
-        addValidationListener(field, allFields);
+        for (javax.swing.JTextField field : allFields) {
+            restrictToSingleDigit(field);
+            addValidationListener(field, allFields);
+        }
     }
-    }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -795,7 +802,7 @@ private void addValidationListener(javax.swing.JTextField field, javax.swing.JTe
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Verify, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                     .addComponent(Solve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -809,7 +816,7 @@ private void addValidationListener(javax.swing.JTextField field, javax.swing.JTe
                 .addComponent(jLabel1)
                 .addGap(35, 35, 35)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addComponent(Verify)
