@@ -1,5 +1,6 @@
 package facade;
 
+import controllers.GenerateController;
 import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;

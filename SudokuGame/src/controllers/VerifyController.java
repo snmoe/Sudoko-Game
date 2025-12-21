@@ -4,30 +4,28 @@ import java.util.ArrayList;
 import model.Game;
 import verification.FailedVerificationResult;
 import verification.DuplicationVerificationMode;
+import verification.GameValidator;
+import verification.VerificationEnum;
 
 public class VerifyController {
 
-    private DuplicationVerificationMode verifier;
-
-    public VerifyController() {
-        this.verifier = new DuplicationVerificationMode();
-    }
-
     public String verify(Game game) {
+
+        VerificationEnum status = GameValidator.validate(game);
+        DuplicationVerificationMode verifier = new DuplicationVerificationMode();
         ArrayList<FailedVerificationResult> failures = verifier.verify(game);
 
-        if (!failures.isEmpty()) {
-            StringBuilder sb = new StringBuilder(" INVALID ");
-            for (FailedVerificationResult f : failures) {
-                sb.append(f.toString()).append(" ");
-            }
-            return sb.toString().trim();
+        if (status == VerificationEnum.VALID) {
+            return "VALID";
         }
-        if (!game.isFull()) {
+        if (status == VerificationEnum.INCOMPLETE) {
             return "INCOMPLETE";
         }
-        return "VALID";
-
+        StringBuilder sb = new StringBuilder("INVALID");
+        for (FailedVerificationResult f : failures) {
+            sb.append(f.toString()).append(" ");
+        }
+        return sb.toString().trim();
     }
 
 }
