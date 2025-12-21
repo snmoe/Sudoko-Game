@@ -10,7 +10,7 @@ import model.Game;
 public class GenerateController {
 
     private final RandomPairs randomPairs = new RandomPairs();
-    private final FileManager fileManager = FileManager.getInstance();
+    
 
     private void generateLevel(Game solved, DifficultyEnum level, int remove) throws IOException {
         Game copy = solved.clone();
@@ -18,8 +18,7 @@ public class GenerateController {
         for (int[] p : cells) {
             copy.setCell(p[0], p[1], 0);
         }
-        fileManager.saveGame(level, copy);
-
+        FileManager.saveGame(level, copy);
     }
 
     public void generateAndSave(Game solved) throws IOException {

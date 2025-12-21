@@ -3,14 +3,14 @@ package controllers;
 import java.util.ArrayList;
 import model.Game;
 import verification.FailedVerificationResult;
-import verification.SequentialVerificationMode;
+import verification.DuplicationVerificationMode;
 
 public class VerifyController {
 
-    private SequentialVerificationMode verifier;
+    private DuplicationVerificationMode verifier;
 
     public VerifyController() {
-        this.verifier = new SequentialVerificationMode();
+        this.verifier = new DuplicationVerificationMode();
     }
 
     public String verify(Game game) {

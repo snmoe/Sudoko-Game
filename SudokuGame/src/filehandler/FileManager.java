@@ -9,30 +9,17 @@ import model.*;
 
 public class FileManager {
 
-    private static FileManager instance = null;
-    private String basePath = "resources";
+    private static String basePath = "resources";
 
-    private FileManager() {
+    public FileManager() {
         initializeFolders();
     }
-
-    public synchronized static FileManager getInstance() {
-
-        if (instance == null) {
-            instance = new FileManager();
-        }
-        return instance;
-    }
     
-      private String getBasePath() {
-        return basePath;
-    }
+   
 
-    
-
-    public void saveGame(DifficultyEnum diff, Game game) throws IOException {
+    public static void saveGame(DifficultyEnum diff, Game game) throws IOException {
         
-        String folderPath = getBasePath() + "/" + diff.name().toLowerCase();
+        String folderPath = basePath + "/" + diff.name().toLowerCase();
         File folder = new File(folderPath);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -42,9 +29,9 @@ public class FileManager {
         CSVFileHandler.CSVWriter(fullPath, game.getGrid());
     }
 
-    public Game loadGame(DifficultyEnum diff) throws NotFoundException, IOException {
+    public static Game loadGame(DifficultyEnum diff) throws NotFoundException, IOException {
         
-       String folderPath = getBasePath() + "/" + diff.name().toLowerCase();
+       String folderPath = basePath + "/" + diff.name().toLowerCase();
         File folder = new File(folderPath);
         File[] allFiles = folder.listFiles();
         
@@ -70,8 +57,8 @@ public class FileManager {
         return new Game(board);
     }
 
-    public Game loadCurrentGame() throws NotFoundException, IOException {
-         String folderPath = getBasePath() + "/current";
+    public static Game loadCurrentGame() throws NotFoundException, IOException {
+         String folderPath = basePath + "/current";
         File gameFile = new File(folderPath + "/current_game.csv");
 
         if (!gameFile.exists()) {
@@ -82,13 +69,13 @@ public class FileManager {
         return new Game(board);
     }
 
-    public void deleteGame(DifficultyEnum level, String filename) {
+    public static void deleteGame(DifficultyEnum level, String filename) {
 
     }
 
-    public void saveCurrentGame(Game game) throws IOException {
+    public static void saveCurrentGame(Game game) throws IOException {
         
-        String folderPath = getBasePath() + "/current";
+        String folderPath = basePath + "/current";
         File folder = new File(folderPath);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -98,10 +85,10 @@ public class FileManager {
         CSVFileHandler.CSVWriter(fullPath, game.getGrid());
     }
 
-    public boolean hasGameOfLevel(DifficultyEnum level){
+    public static boolean hasGameOfLevel(DifficultyEnum level){
         
         
-        String folderPath = getBasePath() + "/" + level.name().toLowerCase();
+        String folderPath = basePath + "/" + level.name().toLowerCase();
         File folder = new File(folderPath);
         File[] allFiles = folder.listFiles();
 

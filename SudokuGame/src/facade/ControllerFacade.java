@@ -9,15 +9,15 @@ import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;
 import model.Game;
-import verification.SequentialVerificationMode;
+import verification.DuplicationVerificationMode;
 
 public class ControllerFacade implements Viewable {
 
-    private final SequentialVerificationMode verifier;
+    private final DuplicationVerificationMode verifier;
     private final RandomPairs randomPairs;
 
     public ControllerFacade() {
-        this.verifier = new SequentialVerificationMode();
+        this.verifier = new DuplicationVerificationMode();
         this.randomPairs = new RandomPairs();
     }
 
