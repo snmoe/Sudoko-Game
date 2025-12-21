@@ -20,9 +20,18 @@
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/generator/RandomPairs.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/interfaces/Viewable.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/FailedVerificationResult.java</file>
-            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/SequentialVerificationMode.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/UnitChecker.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/filehandler/FileManager.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/Test.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/solver/SudokuSolver.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/solver/FlyweightVerifier.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/solver/PermutationIterator.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/generator/GameDriver.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/GameValidator.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/filehandler/CSVFileHandler.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/DuplicationVerificationMode.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/VerificationEnum.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/filehandler/ActionLogger.java</file>
         </group>
     </open-files>
 </project-private>

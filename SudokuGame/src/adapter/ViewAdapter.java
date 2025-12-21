@@ -10,6 +10,7 @@ import java.lang.ModuleLayer.Controller;
 import model.Catalog;
 import model.DifficultyEnum;
 import model.Game;
+import verification.VerificationEnum;
 import view.Controllable;
 import view.UserAction;
 
