@@ -20,9 +20,9 @@ public class GameDriver {
             throw new InvalidGame("Source solution cannot be null.");
         }
 
-        if (GameValidator.validateFromResults(sourceSolution) == VerificationEnum.INCOMPLETE) {
+        if (GameValidator.validate(sourceSolution) == VerificationEnum.INCOMPLETE) {
             throw new InvalidGame("Game is INCOMPLETE");
-        } else if (GameValidator.validateFromResults(sourceSolution) == VerificationEnum.INVALID) {
+        } else if (GameValidator.validate(sourceSolution) == VerificationEnum.INVALID) {
             throw new InvalidGame("Game is INVALID");
         }
 

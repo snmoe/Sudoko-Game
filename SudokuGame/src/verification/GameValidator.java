@@ -6,7 +6,7 @@ import model.Game;
 
 
 public class GameValidator {
-    public static VerificationEnum validateFromResults(Game game){
+    public static VerificationEnum validate(Game game){
         
          int[][] grid = game.getGrid();
         for (int i = 0; i < 9; i++) {
@@ -18,6 +18,7 @@ public class GameValidator {
         }
         DuplicationVerificationMode verifier = new DuplicationVerificationMode();
         ArrayList<FailedVerificationResult> failures = verifier.verify(game);
+        
         if(!failures.isEmpty()){
             return VerificationEnum.INVALID;
         }
