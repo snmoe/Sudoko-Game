@@ -12,8 +12,7 @@ public class VerifyController {
     public String verify(Game game) {
 
         VerificationEnum status = GameValidator.validate(game);
-        DuplicationVerificationMode verifier = new DuplicationVerificationMode();
-        ArrayList<FailedVerificationResult> failures = verifier.verify(game);
+      
 
         if (status == VerificationEnum.VALID) {
             return "VALID";
@@ -21,11 +20,11 @@ public class VerifyController {
         if (status == VerificationEnum.INCOMPLETE) {
             return "INCOMPLETE";
         }
-        StringBuilder sb = new StringBuilder("INVALID");
-        for (FailedVerificationResult f : failures) {
-            sb.append(f.toString()).append(" ");
+        else{
+            return "INVALID";
         }
-        return sb.toString().trim();
+        
+      
     }
 
 }
