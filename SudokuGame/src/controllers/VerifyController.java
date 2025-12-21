@@ -25,6 +25,7 @@ public class VerifyController {
    }
 
     public List<int[]> getInvalidAbsolutePositions(Game game) {
+        
         DuplicationVerificationMode mode = new DuplicationVerificationMode();
         List<FailedVerificationResult> results = mode.verify(game);
         ArrayList<int[]> positions = new ArrayList<>();
@@ -35,8 +36,7 @@ public class VerifyController {
                 positions.add(position);
             }
         }
-        
-        
+
         return positions;
     }
 

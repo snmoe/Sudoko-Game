@@ -3,7 +3,7 @@ package adapter;
 import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;
-import filehandler.CSVFileHandler;
+import facade.ControllerFacade;
 import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;
@@ -14,8 +14,8 @@ public class ViewAdapter implements Controllable {
 
     private final Viewable controller;
 
-    public ViewAdapter(Viewable controller) {
-        this.controller = controller;
+    public ViewAdapter() {
+        this.controller = new ControllerFacade();
     }
 
     @Override
@@ -62,6 +62,12 @@ public class ViewAdapter implements Controllable {
 
     @Override
     public int[][] solveGame(int[][] game) throws InvalidGame {
+        int[] cellssolver = controller.solveGame(new Game(game));
+        for (int i = 0; i < 5; i++) {
+            game[cellssolver[i] / 100][(cellssolver[i] / 10) % 10] = cellssolver[i] % 10;
+
+        }
+        return game;
 
     }
 
