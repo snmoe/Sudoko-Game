@@ -3,7 +3,7 @@ package adapter;
 import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;
-import filehandler.CSVFileHandler;
+import facade.ControllerFacade;
 import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;
@@ -14,8 +14,8 @@ public class ViewAdapter implements Controllable {
 
     private final Viewable controller;
 
-    public ViewAdapter(Viewable controller) {
-        this.controller = controller;
+    public ViewAdapter() {
+        this.controller = new ControllerFacade();
     }
 
     @Override
@@ -51,7 +51,6 @@ public class ViewAdapter implements Controllable {
 
     @Override
     public boolean[][] verifyGame(int[][] game) {
-        
         
     }
 
