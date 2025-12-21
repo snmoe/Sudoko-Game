@@ -13,6 +13,16 @@
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/model/DifficultyEnum.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/model/Game.java</file>
             <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/model/Catalog.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/exceptions/InvalidGame.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/exceptions/InvalidSolutionException.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/exceptions/NotFoundException.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/exceptions/SolutionInvalidException.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/generator/RandomPairs.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/interfaces/Viewable.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/FailedVerificationResult.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/SequentialVerificationMode.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/verification/UnitChecker.java</file>
+            <file>file:/D:/9429-HW1/java/Sudoko-Game/SudokuGame/src/filehandler/FileManager.java</file>
         </group>
     </open-files>
 </project-private>
