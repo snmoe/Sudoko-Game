@@ -4,12 +4,10 @@ import exceptions.InvalidGame;
 import exceptions.NotFoundException;
 import exceptions.SolutionInvalidException;
 import filehandler.CSVFileHandler;
-import interfaces.Viewable;
 import java.io.IOException;
 import model.Catalog;
 import model.DifficultyEnum;
 import model.Game;
-import view.Controllable;
 import view.UserAction;
 
 public class ViewAdapter implements Controllable {
@@ -26,7 +24,6 @@ public class ViewAdapter implements Controllable {
         return new boolean[]{
             Catalog.isCurrent(), Catalog.isAllModesExist()
         };
-
     }
 
     @Override
@@ -45,37 +42,28 @@ public class ViewAdapter implements Controllable {
 
         Game game = controller.getGame(difficulty);
         return game.getGrid();
-
     }
 
     @Override
     public void driveGames(String sourcePath) throws SolutionInvalidException {
-        try {
-            int[][] grid = CSVFileHandler.CSVReader(sourcePath);
-            controller.driveGames(new Game(grid));
-        } catch (IOException ex) {
-            throw new SolutionInvalidException("Failed to load source solution");
-        }
+        controller.driveGamesFromPath(sourcePath);
     }
 
     @Override
     public boolean[][] verifyGame(int[][] game) {
         String Result = controller.verifyGame(new Game(game));
-        boolean valid = Result.equals("VALID");
-        boolean[][] feedback = new boolean[9][9];
+        return null;
 
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                feedback[i][j] = valid;
-            }
-        }
-        return feedback;
     }
 
     @Override
     public int[][] solveGame(int[][] game) throws InvalidGame {
-        controller.solveGame(new Game(game));
-        return game;
+        int[] results = controller.solveGame(new Game(game));
+        for (int posResult : results) {
+
+        }
+        return null;
+
     }
 
     @Override

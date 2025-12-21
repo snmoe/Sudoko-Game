@@ -7,6 +7,7 @@ public class PermutationIterator {
     private boolean hasMore = true;
     
     public boolean hasNext(){
+        
         return hasMore;
     }
     

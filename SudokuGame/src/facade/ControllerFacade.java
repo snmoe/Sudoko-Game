@@ -9,7 +9,7 @@ import exceptions.SolutionInvalidException;
 import filehandler.ActionLogger;
 import filehandler.FileManager;
 import generator.RandomPairs;
-import interfaces.Viewable;
+import adapter.Viewable;
 import java.awt.Desktop.Action;
 import java.io.IOException;
 import model.Catalog;
@@ -44,6 +44,7 @@ public class ControllerFacade implements Viewable {
         boolean allExist = FileManager.hasGameOfLevel(DifficultyEnum.EASY)
                 && FileManager.hasGameOfLevel(DifficultyEnum.MEDIUM)
                 && FileManager.hasGameOfLevel(DifficultyEnum.HARD);
+        
         Catalog.setAllModesExist(allExist);
 
         return new Catalog();
@@ -80,6 +81,16 @@ public class ControllerFacade implements Viewable {
     @Override
     public void logUserAction(String userAction) throws IOException {
         ActionLogger.logAction(userAction);
+    }
+    
+    
+     public void driveGamesFromPath(String sourcePath) throws SolutionInvalidException {
+        try {
+            Game sourceGame = FileManager.loadGameFromPath(sourcePath);
+            driveGames(sourceGame);
+        } catch (Exception e) {
+            throw new SolutionInvalidException(e.getMessage());
+        }
     }
 
 }

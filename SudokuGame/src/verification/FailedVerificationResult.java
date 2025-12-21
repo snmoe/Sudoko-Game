@@ -5,19 +5,60 @@
 package verification;
 
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FailedVerificationResult {
 
-    private String unitType;  // "row", "column", "box"
-    private int unitIndex;    // which row/col/box
-    private int value;        // duplicated value
-    private int[] positions;  // indices where duplicates occurred
+    private String unitType; // "row", "column", "box"
+    private int unitIndex; // which row/col/box (0-8)
+    private int value; // duplicated value
+    private int[] positions; // indices where duplicates occurred (1-indexed)
 
     public FailedVerificationResult(String unitType, int unitIndex, int value, int[] positions) {
         this.unitType = unitType;
         this.unitIndex = unitIndex;
         this.value = value;
         this.positions = positions;
+    }
+
+    public String getUnitType() {
+        return unitType;
+    }
+
+    public int getUnitIndex() {
+        return unitIndex;
+    }
+
+    public int[] getPositions() {
+        return positions;
+    }
+
+  
+    public List<int[]> getAbsolutePositions() {
+        List<int[]> result = new ArrayList<>();
+
+        for (int pos : positions) {
+            int actualPos = pos - 1; // positions are 1-indexed from UnitChecker
+            int row, col;
+
+            if (unitType.equals("row")) {
+                row = unitIndex;
+                col = actualPos;
+            } else if (unitType.equals("column")) {
+                row = actualPos;
+                col = unitIndex;
+            } else { // box
+                int boxRow = (unitIndex / 3) * 3;
+                int boxCol = (unitIndex % 3) * 3;
+                row = boxRow + (actualPos / 3);
+                col = boxCol + (actualPos % 3);
+            }
+
+            result.add(new int[] {row, col});
+        }
+
+        return result;
     }
 
     @Override
@@ -27,7 +68,6 @@ public class FailedVerificationResult {
                 unitType.toUpperCase(),
                 unitIndex + 1,
                 value,
-                Arrays.toString(positions)
-        );
+                Arrays.toString(positions));
     }
 }

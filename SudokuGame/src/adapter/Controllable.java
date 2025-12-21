@@ -1,7 +1,8 @@
 
-package view;
+package adapter;
 import exceptions.*;
 import java.io.IOException;
+import view.UserAction;
 
 public interface Controllable {
   boolean[] getCatalog();

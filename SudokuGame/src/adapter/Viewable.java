@@ -1,11 +1,11 @@
+package adapter;
 
-package interfaces;
 
 import java.io.IOException;
 import model.Catalog;
 import model.Game;
-import model.DifficultyEnum;
 import exceptions.*;
+import model.DifficultyEnum;
 
 public interface Viewable {
   Catalog getCatalog();
@@ -14,4 +14,5 @@ public interface Viewable {
   String verifyGame(Game game);
   int[] solveGame(Game game) throws InvalidGame;
   void logUserAction(String userAction) throws IOException;
+  void driveGamesFromPath(String path) throws SolutionInvalidException;
 }
