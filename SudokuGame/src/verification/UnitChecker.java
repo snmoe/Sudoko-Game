@@ -49,9 +49,15 @@ public class UnitChecker { //units are either the rows, columns or boxes
         int[] colData = board.getColumn(col);
 
         HashMap<Integer, ArrayList<Integer>> positions = new HashMap<>();
+        
+        
 
         for (int row = 0; row < 9; row++) {
             int value = colData[row];
+            
+            if (value < 1 || value > 9) {
+                continue;
+            }
 
             if (!positions.containsKey(value)) {
                 positions.put(value, new ArrayList<>());
@@ -82,7 +88,11 @@ public class UnitChecker { //units are either the rows, columns or boxes
 
         for (int pos = 0; pos < 9; pos++) {
             int value = boxData[pos];
-
+            
+            if (value < 1 || value > 9) {
+                continue;
+            }
+            
             if (!positions.containsKey(value)) {
                 positions.put(value, new ArrayList<>());
             }

@@ -12,8 +12,7 @@ public class SudokuSolver {
         this.verifier = new FlyweightVerifier();
     }
 
- 
-    public int[][] solve(Game game) throws InvalidGame {
+    public int[] solve(Game game) throws InvalidGame {
         int[][] emptyPositions = findEmptyCells(game);
 
         if (emptyPositions.length != 5) {
@@ -33,14 +32,13 @@ public class SudokuSolver {
         throw new InvalidGame("No valid solution found");
     }
 
-  
     private int[][] findEmptyCells(Game game) {
         ArrayList<int[]> empties = new ArrayList<>();
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 if (game.getCell(row, col) == 0) {
-                    empties.add(new int[] { row, col });
+                    empties.add(new int[]{row, col});
                 }
             }
         }
@@ -53,14 +51,17 @@ public class SudokuSolver {
         return result;
     }
 
- 
-    private int[][] formatSolution(int[][] emptyPositions, int[] values) {
-        int[][] solution = new int[5][3];
-        for (int i = 0; i < 5; i++) {
-            solution[i][0] = emptyPositions[i][0]; // row
-            solution[i][1] = emptyPositions[i][1]; // col
-            solution[i][2] = values[i]; // value
+    private int[] formatSolution(int[][] emptyPositions, int[] values) {
+        int[] solution = new int[emptyPositions.length];
+
+        for (int i = 0; i < emptyPositions.length; i++) {
+            int row = emptyPositions[i][0];
+            int col = emptyPositions[i][1];
+            int value = values[i];
+
+            solution[i] = row * 100 + col * 10 + value;
         }
+
         return solution;
     }
 }
