@@ -177,6 +177,7 @@ private void loadGrid(int[][] grid) {
         Solve.setEnabled(false);
         setLocationRelativeTo(null);
         setTitle("Game");
+        mapFields();
         loadGrid(grid);
         javax.swing.JTextField[] allFields = {
         jTextField1, jTextField2, jTextField3, jTextField4, jTextField5,
