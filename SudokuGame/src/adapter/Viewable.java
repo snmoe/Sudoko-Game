@@ -24,6 +24,11 @@ public interface Viewable {
     void driveGamesFromPath(String path) throws SolutionInvalidException;
 
     List<int[]> getInvalidPositions(Game game);
+
     
     void updateCurrentGame(Game game) throws IOException;
+
+
+    Game getCurrentGame() throws NotFoundException;
+
 }

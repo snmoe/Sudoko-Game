@@ -76,10 +76,20 @@ public class ViewAdapter implements Controllable {
     public void logUserAction(UserAction userAction) throws IOException {
         controller.logUserAction(userAction.toString());
     }
+
     
     public void updateCurrentGame(int[][] game) throws IOException{
         Game g = new Game(game);
         controller.updateCurrentGame(g);
         
     } 
+
+
+    public int[][] getCurrentGame() throws NotFoundException {
+
+        Game game = controller.getCurrentGame();
+        return game.getGrid();
+    }
+
+
 }
