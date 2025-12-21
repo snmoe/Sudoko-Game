@@ -62,7 +62,7 @@ public class ViewAdapter implements Controllable {
     @Override
     public boolean[][] verifyGame(int[][] game) {
         String Result = controller.verifyGame(new Game(game));
-        boolean valid = result.equals("VALID");
+        boolean valid = Result.equals("VALID");
         boolean[][] feedback = new boolean[9][9];
 
         for (int i = 0; i < 9; i++) {
