@@ -15,7 +15,6 @@ public class UserAction {
         this.timestamp = System.currentTimeMillis();
     }
 
-    // Getters
     public int getRow() {
         return row;
     }
