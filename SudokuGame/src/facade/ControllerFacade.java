@@ -97,8 +97,8 @@ public class ControllerFacade implements Viewable {
 
         return verifyController.getInvalidAbsolutePositions(game);
     }
-    
-    public void updateCurrentGame(Game game) throws IOException{
+
+    public void updateCurrentGame(Game game) throws IOException {
         FileManager.saveCurrentGame(game);
     }
 
@@ -111,7 +111,23 @@ public class ControllerFacade implements Viewable {
             throw new RuntimeException("Error reading current game file: " + ex.getMessage());
         }
     }
+
     public String undoLastAction() throws IOException {
-    return ActionLogger.removeLastAction();
-}
+        return ActionLogger.removeLastAction();
+    }
+
+    public void removeCurrentGame() throws IOException {
+        FileManager.deleteCurrentGame();
+        ActionLogger.clearLog();
+    }
+
+    @Override
+    public void saveInitialGame(int[][] game) throws IOException {
+        FileManager.saveInitialGame(new Game(game));
+    }
+
+    @Override
+    public int[][] getInitialGame() throws NotFoundException, IOException {
+        return FileManager.loadInitialGame().getGrid();
+    }
 }
