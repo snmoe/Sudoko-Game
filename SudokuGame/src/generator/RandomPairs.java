@@ -8,7 +8,6 @@ import java.util.Random;
 import java.util.Set;
 
 public class RandomPairs {
-    // Range 0..8 for both x and y
 
     private static final int MAX_COORD = 8;
     private static final int MAX_UNIQUE_PAIRS = (MAX_COORD + 1) * (MAX_COORD + 1);
