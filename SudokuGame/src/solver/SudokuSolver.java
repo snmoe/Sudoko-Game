@@ -43,7 +43,6 @@ public class SudokuSolver {
             }
         }
 
-        // Convert to array
         int[][] result = new int[empties.size()][2];
         for (int i = 0; i < empties.size(); i++) {
             result[i] = empties.get(i);
