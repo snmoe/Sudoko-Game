@@ -10,10 +10,10 @@ import java.util.List;
 
 public class FailedVerificationResult {
 
-    private String unitType; // "row", "column", "box"
-    private int unitIndex; // which row/col/box (0-8)
-    private int value; // duplicated value
-    private int[] positions; // indices where duplicates occurred (1-indexed)
+    private String unitType; 
+    private int unitIndex; 
+    private int value; 
+    private int[] positions; 
 
     public FailedVerificationResult(String unitType, int unitIndex, int value, int[] positions) {
         this.unitType = unitType;
@@ -39,7 +39,7 @@ public class FailedVerificationResult {
         List<int[]> result = new ArrayList<>();
 
         for (int pos : positions) {
-            int actualPos = pos - 1; // positions are 1-indexed from UnitChecker
+            int actualPos = pos - 1; 
             int row, col;
 
             if (unitType.equals("row")) {

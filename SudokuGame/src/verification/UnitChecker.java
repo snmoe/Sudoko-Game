@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import model.Game;
 
-public class UnitChecker { //units are either the rows, columns or boxes
+public class UnitChecker { 
 
     public static ArrayList<FailedVerificationResult> checkRow(int row, Game board) {
         ArrayList<FailedVerificationResult> results = new ArrayList<>();
         int[] rowData = board.getRow(row);
 
-        // Plain map from value -> list of indices
         HashMap<Integer, ArrayList<Integer>> positions = new HashMap<>();
 
         for (int col = 0; col < 9; col++) {
