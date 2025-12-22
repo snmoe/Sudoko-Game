@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ActionLogger{
 
-    private static final String LOG_PATH = "resources/current/log.txt";
+    private static final String LOG_PATH = "resources/incomplete/log.txt";
 
      public static void logAction(String actionString) throws IOException {
         File logFile = new File(LOG_PATH);
@@ -37,7 +37,6 @@ public class ActionLogger{
 
         String lastLine = lines.remove(lines.size() - 1);
 
-        // Rewrite file without last line
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_PATH))) {
             for (String line : lines) {
                 writer.write(line);
@@ -48,9 +47,7 @@ public class ActionLogger{
         return lastLine;
     }
 
-    /**
-     * Clear the entire log file.
-     */
+
     public static void clearLog() throws IOException {
         File logFile = new File(LOG_PATH);
         if (logFile.exists()) {
@@ -58,9 +55,7 @@ public class ActionLogger{
         }
     }
 
-    /**
-     * Check if there are any actions to undo.
-     */
+
     public static boolean hasActions() throws IOException {
         File logFile = new File(LOG_PATH);
         if (!logFile.exists()) {

@@ -14,11 +14,9 @@ public class FileManager {
     public FileManager() {
         initializeFolders();
     }
-    
-   
 
     public static void saveGame(DifficultyEnum diff, Game game) throws IOException {
-        
+
         String folderPath = basePath + "/" + diff.name().toLowerCase();
         File folder = new File(folderPath);
         if (!folder.exists()) {
@@ -30,13 +28,13 @@ public class FileManager {
     }
 
     public static Game loadGame(DifficultyEnum diff) throws NotFoundException, IOException {
-        
-       String folderPath = basePath + "/" + diff.name().toLowerCase();
+
+        String folderPath = basePath + "/" + diff.name().toLowerCase();
         File folder = new File(folderPath);
         File[] allFiles = folder.listFiles();
-        
+
         ArrayList<File> csvFiles = new ArrayList<>();
-        
+
         if (allFiles != null) {
             for (File file : allFiles) {
                 if (file.getName().endsWith(".csv")) {
@@ -44,12 +42,11 @@ public class FileManager {
                 }
             }
         }
- 
+
         if (csvFiles.isEmpty()) {
             throw new NotFoundException("No games found for difficulty: " + diff);
         }
 
-       
         Random rand = new Random();
         File chosen = csvFiles.get(rand.nextInt(csvFiles.size()));
 
@@ -58,7 +55,7 @@ public class FileManager {
     }
 
     public static Game loadCurrentGame() throws NotFoundException, IOException {
-         String folderPath = basePath + "/current";
+        String folderPath = basePath + "/incomplete";
         File gameFile = new File(folderPath + "/current_game.csv");
 
         if (!gameFile.exists()) {
@@ -70,17 +67,17 @@ public class FileManager {
     }
 
     public static void deleteGame(DifficultyEnum level, String filename) {
-     String folderPath = basePath + "/" + level.name().toLowerCase();
-    File gameFile = new File(folderPath + "/" + filename);
-    if (gameFile.exists()) {
-        gameFile.delete();
-    }
-        
+        String folderPath = basePath + "/" + level.name().toLowerCase();
+        File gameFile = new File(folderPath + "/" + filename);
+        if (gameFile.exists()) {
+            gameFile.delete();
+        }
+
     }
 
     public static void saveCurrentGame(Game game) throws IOException {
-        
-        String folderPath = basePath + "/current";
+
+        String folderPath = basePath + "/incomplete";
         File folder = new File(folderPath);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -90,9 +87,8 @@ public class FileManager {
         CSVFileHandler.CSVWriter(fullPath, game.getGrid());
     }
 
-    public static boolean hasGameOfLevel(DifficultyEnum level){
-        
-        
+    public static boolean hasGameOfLevel(DifficultyEnum level) {
+
         String folderPath = basePath + "/" + level.name().toLowerCase();
         File folder = new File(folderPath);
         File[] allFiles = folder.listFiles();
@@ -110,19 +106,52 @@ public class FileManager {
     }
 
     private void initializeFolders() {
-        String[] folders = {"easy", "medium", "hard", "incomplete"};
+        String[] folders = { "easy", "medium", "hard", "incomplete" };
         for (String folder : folders) {
             File dir = new File(basePath + "/" + folder);
             if (!dir.exists()) {
                 dir.mkdirs();
-             }
+            }
         }
     }
-    
-    
+
     public static Game loadGameFromPath(String path) throws IOException {
         int[][] board = CSVFileHandler.CSVReader(path);
         return new Game(board);
     }
 
+    public static void saveInitialGame(Game game) throws IOException {
+        String folderPath = basePath + "/incomplete";
+        File folder = new File(folderPath);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+        String fullPath = folderPath + "/initial_game.csv";
+        CSVFileHandler.CSVWriter(fullPath, game.getGrid());
+    }
+
+    public static Game loadInitialGame() throws NotFoundException, IOException {
+        String folderPath = basePath + "/incomplete";
+        File gameFile = new File(folderPath + "/initial_game.csv");
+
+        if (!gameFile.exists()) {
+
+            return loadCurrentGame();
+        }
+
+        int[][] board = CSVFileHandler.CSVReader(gameFile.getAbsolutePath());
+        return new Game(board);
+    }
+
+    public static void deleteCurrentGame() {
+        String folderPath = basePath + "/incomplete";
+        File gameFile = new File(folderPath + "/current_game.csv");
+        if (gameFile.exists()) {
+            gameFile.delete();
+        }
+        File initialFile = new File(folderPath + "/initial_game.csv");
+        if (initialFile.exists()) {
+            initialFile.delete();
+        }
+    }
 }

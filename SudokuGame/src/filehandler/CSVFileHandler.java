@@ -40,7 +40,6 @@ public class CSVFileHandler {
 
    
     public static void CSVWriter(String filename, int[][] data) throws IOException {
-        // Create parent directories if they don't exist
         File file = new File(filename);
         File parent = file.getParentFile();
         if (parent != null && !parent.exists()) {
@@ -98,9 +97,6 @@ public class CSVFileHandler {
         return lines;
     }
 
-    /**
-     * Read the last line from a log file
-     */
     public static String readLastLogLine(String filename) throws IOException {
         List<String> lines = readLogFile(filename);
         if (lines.isEmpty()) {
@@ -117,10 +113,8 @@ public class CSVFileHandler {
             return;
         }
 
-        // Remove last line
         lines.remove(lines.size() - 1);
 
-        // Rewrite the file
         PrintWriter pw = new PrintWriter(new FileWriter(filename));
         for (String line : lines) {
             pw.println(line);
