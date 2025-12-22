@@ -21,8 +21,8 @@ public class ViewAdapter implements Controllable {
     @Override
     public boolean[] getCatalog() {
         controller.getCatalog();
-        return new boolean[]{
-            Catalog.isCurrent(), Catalog.isAllModesExist()
+        return new boolean[] {
+                Catalog.isCurrent(), Catalog.isAllModesExist()
         };
     }
 
@@ -54,8 +54,8 @@ public class ViewAdapter implements Controllable {
 
         Game game = new Game(grid);
         boolean[][] invalid = new boolean[9][9];
-        
-        for(int[] pos : controller.getInvalidPositions(game)) {
+
+        for (int[] pos : controller.getInvalidPositions(game)) {
             invalid[pos[0]][pos[1]] = true;
         }
         return invalid;
@@ -77,24 +77,37 @@ public class ViewAdapter implements Controllable {
         controller.logUserAction(userAction.toString());
     }
 
-    
-    public void updateCurrentGame(int[][] game) throws IOException{
+    public void updateCurrentGame(int[][] game) throws IOException {
         Game g = new Game(game);
         controller.updateCurrentGame(g);
-        
-    } 
 
+    }
 
     public int[][] getCurrentGame() throws NotFoundException {
 
         Game game = controller.getCurrentGame();
         return game.getGrid();
     }
-     public UserAction undoLastAction() throws IOException {
-   
-        String line = ((ControllerFacade)controller).undoLastAction();
-        if (line == null) return null;
-        return UserAction.fromString(line);
+
+    public UserAction undo() throws IOException {
+        String actionStr = controller.undoLastAction();
+        if (actionStr == null)
+            return null;
+
+        return UserAction.fromString(actionStr);
     }
 
+    public void removeCurrentGame() throws IOException {
+        controller.removeCurrentGame();
+    }
+
+    
+    public void saveInitialGame(int[][] game) throws IOException {
+        controller.saveInitialGame(game);
+    }
+
+    
+    public int[][] getInitialGame() throws NotFoundException, IOException {
+        return controller.getInitialGame();
+    }
 }

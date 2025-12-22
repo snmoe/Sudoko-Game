@@ -25,10 +25,15 @@ public interface Viewable {
 
     List<int[]> getInvalidPositions(Game game);
 
-    
     void updateCurrentGame(Game game) throws IOException;
-
 
     Game getCurrentGame() throws NotFoundException;
 
+    String undoLastAction() throws IOException;
+
+    void removeCurrentGame() throws IOException;
+
+    void saveInitialGame(int[][] game) throws IOException;
+
+    int[][] getInitialGame() throws NotFoundException, IOException;
 }
