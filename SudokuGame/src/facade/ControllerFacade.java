@@ -111,5 +111,7 @@ public class ControllerFacade implements Viewable {
             throw new RuntimeException("Error reading current game file: " + ex.getMessage());
         }
     }
-
+    public String undoLastAction() throws IOException {
+    return ActionLogger.removeLastAction();
+}
 }
