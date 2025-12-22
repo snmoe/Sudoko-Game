@@ -90,6 +90,11 @@ public class ViewAdapter implements Controllable {
         Game game = controller.getCurrentGame();
         return game.getGrid();
     }
-
+     public UserAction undoLastAction() throws IOException {
+   
+        String line = ((ControllerFacade)controller).undoLastAction();
+        if (line == null) return null;
+        return UserAction.fromString(line);
+    }
 
 }
